@@ -1,0 +1,47 @@
+class Solution:
+    def twoSum(self,nums,target):
+        dict={}
+        for i,num in enumerate(nums):
+            if num in dict:
+                return dict[num],i
+            else:
+                dict[target-num]=i
+
+        '''
+        dict = {}
+        for i,num in enumerate(nums):
+            number = target - num
+            if number in dict:
+                return [dict[number], i]
+            dict[num] = i
+            '''
+
+        '''
+        a = nums.copy()
+        nums.sort()
+        l = 0
+        r = len(nums)-1
+
+        while l < r:
+            if target == (nums[l] + nums[r]):
+                break
+            elif target < (nums[l] + nums[r]):
+                r -= 1
+            else:
+                r += 1
+
+        list = []
+        for i in range(len(nums)):
+            if nums[r] == a[i]:
+                list.append(i)
+            elif nums[l] == a[i]:
+                list.append(i)
+        return list
+        '''
+
+        ''' 
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[j] == target - nums[i]:
+                    return [i,j]
+                    '''
