@@ -1,0 +1,24 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0 or (x > 0 and x%10 == 0):
+            return False
+        
+        halfReversed = 0
+        while x > halfReversed:
+            halfReversed = halfReversed*10 + x % 10
+            x //= 10
+
+        return x == halfReversed or x == halfReversed//10
+        '''
+        if x < 0:
+            return False
+
+        #return str(x) == str(x)[::-1] 
+        orig = x
+        rev = 0
+        while x > 0:
+            rev = rev  * 10 + x %  10
+            x //= 10
+
+        return rev == orig 
+        '''
