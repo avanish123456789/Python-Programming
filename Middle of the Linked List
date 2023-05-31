@@ -20,8 +20,7 @@ class Solution:
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         slow = fast = head  
-        while fast and fast.next:  #both conditions holds true for odd and even 
-            #fast != None for even(iteration ends at null) and fast.next != None for odd
+        while fast and fast.next:  #https://www.youtube.com/watch?v=BafeN6aLTOY 
             fast, slow = fast.next.next, slow.next
         return slow 
 '''
