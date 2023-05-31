@@ -1,0 +1,38 @@
+class Solution:
+ def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    count = 0
+    start = node = head
+    while start:
+        count += 1
+        start = start.next
+    
+    middle = 0
+    while node:
+        if middle == count//2:
+            return node
+        else:
+            middle += 1
+            node = node.next
+          
+
+#hare and tortoise method
+'''
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow = fast = head  
+        while fast and fast.next:  #both conditions holds true for odd and even 
+            #fast != None for even(iteration ends at null) and fast.next != None for odd
+            fast, slow = fast.next.next, slow.next
+        return slow 
+'''
+
+'''   
+class Solution(object):
+    def middleNode(self, head):
+        # We need two pointers, one is head with one step each iteration, and the other is temp with two steps each iteration.
+        temp = head
+        while temp and temp.next:
+            head, temp = head.next, temp.next.next
+        
+        return head
+    '''
