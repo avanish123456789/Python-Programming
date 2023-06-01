@@ -27,3 +27,4 @@ class Solution:
             else:
                 heapq.heappushpop(list, [value, key])
         return [key for value, key in list]
+#check with this and visualise it, nums = [2,2,3,1,1,1,4,4,4,4], k = 2
