@@ -1,0 +1,29 @@
+'''
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        dict = {}
+        for i in nums:
+            if i not in dict:
+                dict[i] = 1
+            else:
+                dict[i] += 1
+        return sorted(dict, key = dict.get, reverse = True)[:k]
+'''
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        dict = {}
+        for i in nums:
+            if i not in dict:
+                dict[i] = 1
+            else:
+                dict[i] += 1
+
+        import heapq
+        list = []
+        for key, value in dict.items():
+            if len(list)<k:
+                heapq.heappush(list, [value, key])
+            else:
+                heapq.heappushpop(list, [value, key])
+        return [key for value, key in list]
