@@ -9,7 +9,7 @@ class Solution:
                 dict[i] += 1
         return sorted(dict, key = dict.get, reverse = True)[:k]
 '''
-
+#heap sort
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         dict = {}
@@ -28,3 +28,24 @@ class Solution:
                 heapq.heappushpop(list, [value, key])
         return [key for value, key in list]
 #check with this and visualise it, nums = [2,2,3,1,1,1,4,4,4,4], k = 2
+
+'''
+#bucket sort
+class Solution:
+    def topKFrequent(self, nums, k):
+        count = {}
+        freq = [[] for i in range(len(nums)+1)]
+        print(type(freq))
+        
+        for n in nums:
+            count[n] = 1+ count.get(n, 0)
+        for n,c in count.items():
+            freq[c].append(n)
+            
+        res = []
+        for i in range(len(freq)-1,0,-1):
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+                    '''
