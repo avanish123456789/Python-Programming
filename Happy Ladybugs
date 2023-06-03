@@ -1,0 +1,25 @@
+from collections import Counter
+def happyLadybugs(b):
+    bugs = Counter(b)
+    
+    #no. of lady bugs is 1
+    for i, j in bugs.items():
+        if (i != "_") and j == 1:
+            return 'NO'
+    
+    #check whether 1 empty cell is present
+    if bugs['_'] >0:
+        return 'YES'
+    
+    else:
+        #check the lady bugs are happy initially
+        pair = 0
+        for i in range(len(b)-1):
+            if b[i] == b[i+1]:
+                pair += 1
+            elif pair>0:
+                pair = 0
+            else:
+                return 'NO'
+           
+        return 'YES' 
