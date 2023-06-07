@@ -28,7 +28,7 @@ class Solution:
             elif target < (nums[l] + nums[r]):
                 r -= 1
             else:
-                r += 1
+                l += 1
 
         list = []
         for i in range(len(nums)):
